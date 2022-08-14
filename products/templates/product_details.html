@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<div class="bg-light rounded-4 p-3">
+    <div class="row">
+
+        <div class="col">
+            {% for img in obj.images.all %} 
+            {% if forloop.first %} 
+            <img src="{{img.image.url}}" class="img-responsive rounded-4" width="100%" alt="..."> 
+            {% endif %}  
+            {% endfor %}  
+        </div> 
+
+        <div class="col">
+            <h3><i class="fa fa-star me-2 link-warning"></i>{{obj.title}}</h3>
+            <small class="link-dark">{{obg.category.name}}</small>
+            <p>{{description|safe}}</p> 
+
+            <button class="btn btn-success btn-lg rounded-4 fw-bold">
+                <i class="fab fa-whatsapp me-2"></i> WHATSAPP 
+            </button>  
+        </div> 
+
+    </div>
+
+</div>
+
+
+{% endblock %}

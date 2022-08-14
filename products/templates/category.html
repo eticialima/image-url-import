@@ -1,0 +1,12 @@
+<ul>
+	<li>
+		<a class="btn btn-lg link-light"href="/">Todos</a>
+	</li>
+
+	{% for c in category %} 
+	<li>
+		<a class="btn btn-lg link-light" href="{% url 'category' c.id %}">{{c.name}}</a>
+	</li>
+	{% endfor %}  
+
+</ul> 

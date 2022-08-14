@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<div class="row row-cols-1 row-cols-md-3 g-4"> 
+ 
+{% for el in products %} 
+<div class="col mt-3" style="width: 25rem;"> 
+    <div class="card h-100 bg-light border-light rounded-4 shadow mb-3">   
+        {% for img in el.images.all %} 
+        {% if forloop.first %} 
+        <img src="{{img.image.url}}" class="rounded-4" alt="..."> 
+        {% endif %}  
+        {% endfor %}   
+        <div class="card-body">
+            <a class="link-dark" href="{% url 'product-detail' el.id %}">
+                <h5 class="card-title">
+                    <i class="fa fa-star me-2 link-warning"></i>{{el.title}}
+                </h5> 
+            </a>
+            <small class="text-muted">{{el.category}}</small> 
+            <p class="card-text">{{el.description|truncatechars:100}}</p>
+        </div>  
+    </div> 
+</div>
+{% endfor %}  
+
+</div>  
+ 
+{% endblock %}
